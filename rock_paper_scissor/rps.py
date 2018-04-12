@@ -13,7 +13,21 @@ Player 1's information
 # 1 is for Paper
 # 2 is for Scissor
 player_one = {0:'Rock',1:'Paper',2:'Scissor'}
-bit1 = 2 # bit from the left. Assuming that the leftmost bit is 0th bit
+done=False
+while(done):
+	bit1=int(input('Player1! Enter your position : 1 for 1st digit, 2 for 2nd digit, 3 for 3rd digit'))
+	if bit1>0 and bit1<4:
+		bit1=bit1-1
+	bit2=int(input('Player2! Enter your position : 1 for 1st digit, 2 for 2nd digit, 3 for 3rd digit'))
+	if bit2>0 and bit2<4:
+		bit2=bit2-1
+		if bit1==bit2:
+			print('Please give another choice')
+			continue
+		done=True
+#bit1 = 2 
+#bit1 = 2 
+# bit from the left. Assuming that the leftmost bit is 0th bit
 
 '''
 Player 2's information
@@ -22,7 +36,8 @@ Player 2's information
 # 0 is for Paper
 # 1 is for Scissor
 player_two = {0:'Paper',1:'Scissor',2:'Rock'}
-bit2 = 1 # bit from the left. Assuming that the leftmost bit is 0th bit
+#bit2 = 1 
+# bit from the left. Assuming that the leftmost bit is 0th bit
 
 def rock_paper_scissor(num1,num2):
     p1 = int(num1[bit1])%3
@@ -42,6 +57,11 @@ def rock_paper_scissor(num1,num2):
     elif(player_one[p1]=="Scissor" and player_two[p2]=="Rock"):
         print("!!Player Two Wins!!")
 
-num1 = input("Player One, enter your choice: ")
-num2 = input("Player Two, enter your choice: ")
-rock_paper_scissor(num1,num2)
+while(True):
+	num1 = input("Player One, enter your choice: ")
+	num2 = input("Player Two, enter your choice: ")
+	rock_paper_scissor(num1,num2)
+	ch = input("Do you want to continue? (y/n)")
+	if(ch=='n'):
+		break;
+
